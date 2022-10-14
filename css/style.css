@@ -151,7 +151,11 @@ body {
     color: #ffffff;
 }
 
-button:disabled {
+.footer-container button:hover:enabled {
+    cursor: pointer;
+}
+
+.footer-container button:disabled {
     background-color: #cbcbcb;
 }
 

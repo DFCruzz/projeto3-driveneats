@@ -2,9 +2,7 @@
 const foods = document.querySelectorAll('.food-block');
 const drinks = document.querySelectorAll('.drink-block');
 const desserts = document.querySelectorAll('.dessert-block');
-const slider = document.querySelector('.selection-options');
-const orderBtn = document.getElementsByClassName('.order-btn');
-const orderSelection = document.querySelectorAll('.selected');
+
 // -------- Select items functions - Start
 
 // Choose you food option - Start
@@ -32,7 +30,7 @@ drinks.forEach((drink) => {
     drink.addEventListener('click', function() {
         const userSelection = document.querySelectorAll('.drink-block');
         userSelection.forEach(drinkItem => {
-            if(drinkItem.classList.contains("selected") && drinkItem !== drink) {
+            if(drinkItem.classList.contains('selected') && drinkItem !== drink) {
                 drinkItem.classList.remove('selected')
             }
         });
@@ -52,7 +50,7 @@ desserts.forEach((dessert) => {
     dessert.addEventListener('click', function() {
         const userSelection = document.querySelectorAll('.dessert-block');
         userSelection.forEach(dessertItem => {
-            if(dessertItem.classList.contains("selected") && dessertItem !== dessert) {
+            if(dessertItem.classList.contains('selected') && dessertItem !== dessert) {
                 dessertItem.classList.remove('selected')
             }
         });
@@ -69,6 +67,32 @@ desserts.forEach((dessert) => {
 
 // -------- Select items functions - End
 
+
+// -------- Order button function - Start
+function activateBtn() {
+    const orderBtn = document.querySelector('.order-btn');
+    const orderSelection = document.querySelectorAll('.selected');
+
+    if(orderSelection.length == 1) { 
+        orderBtn.disabled = true;      
+        orderBtn.innerHTML = "2 opções restantes";
+    }
+    else if (orderSelection.length == 2) {  
+        orderBtn.disabled = true;      
+        orderBtn.innerHTML = "Selecione sua última opção";
+    }
+    else if (orderSelection.length == 3) {
+        orderBtn.disabled = false;
+        orderBtn.innerHTML = "Prontinho! Clique aqui para finalizar o pedido"
+    }
+    else {
+        orderBtn.disabled = true;
+        orderBtn.innerHTML= "Selecione os 3 itens para fechar o pedido"
+    }
+}
+// -------- Order button function - End
+
+activateBtn();
 
 
 
