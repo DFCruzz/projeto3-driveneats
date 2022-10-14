@@ -179,6 +179,83 @@ body {
     cursor: pointer;
 }
 
+.overlay-container {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.75);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.endbox-order {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 350px;
+    height: 330px;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #50d074;
+    letter-spacing: 0.018em;
+    z-index: 3;
+
+
+}
+
+.endbox-title {
+    text-align: center;
+}
+
+.endbox-food, .endbox-drink, .endbox-dessert, .endbox-total {
+    display: flex;
+    justify-content: space-between;
+}
+
+.endbox-order h2, .endbox-order p {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.endbox-order p {
+    font-weight: 400;
+}
+
+.endbox-total p {
+    font-weight: 700;
+}
+
+.finish-order, .redo-order {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    width: 330px;
+    height: 52px;
+    text-align: center;
+    border: none;
+}
+
+.finish-order {
+    color: #50d074;
+    font-size: 22px;
+    background-color: #ffffff;
+    border-radius: 100px;
+
+}
+
+.redo-order {
+    font-size: 20px;
+    background-color: transparent;
+    color: #ffffff;
+}
+
+.deactivated {
+    display: none;
+}
 
 
 
