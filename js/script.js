@@ -2,6 +2,8 @@
 const foods = document.querySelectorAll('.food-block');
 const drinks = document.querySelectorAll('.drink-block');
 const desserts = document.querySelectorAll('.dessert-block');
+const overlay = document.getElementById('overlay');
+const endboxOrder = document.getElementById('endboxOrder');
 
 // -------- Select items functions - Start
 
@@ -92,7 +94,13 @@ function activateBtn() {
 }
 // -------- Order button function - End
 
+function finishOrder() {
+    overlay.classList.remove('deactivated')
+}
 
+function redoOrder() {
+    overlay.classList.add('deactivated')
+}
 
 activateBtn();
 

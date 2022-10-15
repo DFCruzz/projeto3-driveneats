@@ -257,16 +257,16 @@
         </div>    
         <div class="footer-container">
             <div class="finish-btn">
-                <button class="order-btn"></button>
+                <button onclick="finishOrder()" class="order-btn"></button>
             </div>
         </div>
 
-        <div class="overlay-container deactivated">
-            <div class="endbox-order">
+        <div id="overlay" class="overlay-container deactivated">
+            <div id="endboxOrder" class="endbox-order">
                 <h2 class="endbox-title">Confirme seu pedido</h2>
                 <div class="endbox-food">
-                    <p class="end-food"></p>
-                    <p class="food-price"></p>
+                    <p class="end-food">Frango</p>
+                    <p class="food-price">14,90</p>
                 </div>
                 <div class="endbox-drink">
                     <p class="end-drink"></p>
@@ -280,7 +280,7 @@
                     <p class="total-price"></p>
                 </div>
                 <button class="finish-order">Tudo certo! Pode pedir</button>
-                <button class="redo-order">Cancelar</button>
+                <button onclick="redoOrder()" class="redo-order">Cancelar</button>
             </div>
         </div>
     </div>
