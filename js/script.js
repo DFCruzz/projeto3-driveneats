@@ -93,11 +93,11 @@ function getOrders() {
 
 
     endFood.innerHTML = `${foodOrder}`;
-    foodCost.innerHTML = "R$ " + `${foodPrice.toFixed(2).replace('.',',')}`;
+    foodCost.innerHTML = `${foodPrice.toFixed(2).replace('.',',')}`;
     endDrink.innerHTML = `${drinkOrder}`;
-    drinkCost.innerHTML = "R$ " + `${drinkPrice.toFixed(2).replace('.',',')}`;
+    drinkCost.innerHTML = `${drinkPrice.toFixed(2).replace('.',',')}`;
     endDessert.innerHTML = `${dessertOrder}`;
-    dessertCost.innerHTML = "R$ " + `${dessertPrice.toFixed(2).replace('.',',')}`;
+    dessertCost.innerHTML = `${dessertPrice.toFixed(2).replace('.',',')}`;
     totalCost.innerHTML = "R$ " + `${finalPrice.toFixed(2).replace('.',',')}`;
 }
 // -------- Get order names and costs - End
@@ -128,7 +128,7 @@ function activateBtn() {
 
 // -------- Function to send message - Start
 function sendMessage() {
-    const phone = "+5511998855774";
+    const phone = "+5511971480892";
     const name = prompt('Qual é o seu nome?');
     const address = prompt('Qual é o seu endereço?');
     const foodOrder = document.querySelector(".food-block.selected .option-name").innerText;
