@@ -69,6 +69,42 @@ desserts.forEach((dessert) => {
 
 // -------- Select items functions - End
 
+// -------- Get order names and costs - Start
+
+// -------- Get order names and costs - End
+function getOrders() {
+    // Getting Order Names and Costs
+    const foodOrder = document.querySelector(".food-block.selected .option-name").innerText;
+    const foodPriceString = document.querySelector('.food-block.selected .opt-prc').innerText;
+    const foodPrice = Number(foodPriceString.replace(',','.'));
+    const drinkOrder = document.querySelector(".drink-block.selected .option-name").innerText;
+    const drinkPriceString = document.querySelector('.drink-block.selected .opt-prc').innerText;
+    const drinkPrice = Number(drinkPriceString.replace(',','.'));
+    const dessertOrder = document.querySelector(".dessert-block.selected .option-name").innerText;
+    const dessertPriceString = document.querySelector('.dessert-block.selected .opt-prc').innerText;
+    const dessertPrice = Number(dessertPriceString.replace(',','.'));
+
+
+    // Changing text in Checkout box
+    const endFood = document.querySelector('.end-food');
+    const endDrink = document.querySelector('.end-drink');
+    const endDessert = document.querySelector('.end-dessert');
+    const foodCost = document.querySelector('.food-price');
+    const drinkCost = document.querySelector('.drink-price');
+    const dessertCost = document.querySelector('.dessert-price');
+    const totalCost = document.querySelector('.total-price');
+    const finalPrice = (foodPrice + drinkPrice + dessertPrice);
+
+
+    endFood.innerHTML = `${foodOrder}`;
+    foodCost.innerHTML = "R$ " + `${foodPrice.toFixed(2)}`
+    endDrink.innerHTML = `${drinkOrder}`;
+    drinkCost.innerHTML = "R$ " + `${drinkPrice.toFixed(2)}`
+    endDessert.innerHTML = `${dessertOrder}`;
+    dessertCost.innerHTML = "R$ " + `${dessertPrice.toFixed(2)}`
+    totalCost.innerHTML = "R$ " + `${finalPrice.toFixed(2)}`
+
+}
 
 // -------- Order button function - Start
 function activateBtn() {
@@ -96,6 +132,7 @@ function activateBtn() {
 
 function finishOrder() {
     overlay.classList.remove('deactivated')
+    getOrders()
 }
 
 function redoOrder() {
