@@ -128,7 +128,7 @@ function activateBtn() {
 
 // -------- Function to send message - Start
 function sendMessage() {
-    const phone = "+5511995202208";
+    const phone = "+5511998855774";
     const name = prompt('Qual é o seu nome?');
     const address = prompt('Qual é o seu endereço?');
     const foodOrder = document.querySelector(".food-block.selected .option-name").innerText;
