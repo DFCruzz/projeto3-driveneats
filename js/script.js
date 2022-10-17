@@ -1,4 +1,4 @@
-// Declaring all global variables - Start
+// Declaring global variables - Start
 const foods = document.querySelectorAll('.food-block');
 const drinks = document.querySelectorAll('.drink-block');
 const desserts = document.querySelectorAll('.dessert-block');
@@ -6,7 +6,6 @@ const overlay = document.getElementById('overlay');
 const endboxOrder = document.getElementById('endboxOrder');
 
 // -------- Select items functions - Start
-
 // Choose you food option - Start
 foods.forEach((food) => {
     food.addEventListener('click', function() {
@@ -66,12 +65,9 @@ desserts.forEach((dessert) => {
     });
 });
 // Choose you dessert option - End
-
 // -------- Select items functions - End
 
 // -------- Get order names and costs - Start
-
-// -------- Get order names and costs - End
 function getOrders() {
     // Getting Order Names and Costs
     const foodOrder = document.querySelector(".food-block.selected .option-name").innerText;
@@ -97,14 +93,14 @@ function getOrders() {
 
 
     endFood.innerHTML = `${foodOrder}`;
-    foodCost.innerHTML = "R$ " + `${foodPrice.toFixed(2)}`
+    foodCost.innerHTML = "R$ " + `${foodPrice.toFixed(2).replace('.',',')}`;
     endDrink.innerHTML = `${drinkOrder}`;
-    drinkCost.innerHTML = "R$ " + `${drinkPrice.toFixed(2)}`
+    drinkCost.innerHTML = "R$ " + `${drinkPrice.toFixed(2).replace('.',',')}`;
     endDessert.innerHTML = `${dessertOrder}`;
-    dessertCost.innerHTML = "R$ " + `${dessertPrice.toFixed(2)}`
-    totalCost.innerHTML = "R$ " + `${finalPrice.toFixed(2)}`
-
+    dessertCost.innerHTML = "R$ " + `${dessertPrice.toFixed(2).replace('.',',')}`;
+    totalCost.innerHTML = "R$ " + `${finalPrice.toFixed(2).replace('.',',')}`;
 }
+// -------- Get order names and costs - End
 
 // -------- Order button function - Start
 function activateBtn() {
@@ -130,7 +126,33 @@ function activateBtn() {
 }
 // -------- Order button function - End
 
-function finishOrder() {
+// -------- Function to send message - Start
+function sendMessage() {
+    const phone = "+5511995202208";
+    const name = prompt('Qual é o seu nome?');
+    const address = prompt('Qual é o seu endereço?');
+    const foodOrder = document.querySelector(".food-block.selected .option-name").innerText;
+    const foodPriceString = document.querySelector('.food-block.selected .opt-prc').innerText;
+    const foodPrice = Number(foodPriceString.replace(',','.'));
+    const drinkOrder = document.querySelector(".drink-block.selected .option-name").innerText;
+    const drinkPriceString = document.querySelector('.drink-block.selected .opt-prc').innerText;
+    const drinkPrice = Number(drinkPriceString.replace(',','.'));
+    const dessertOrder = document.querySelector(".dessert-block.selected .option-name").innerText;
+    const dessertPriceString = document.querySelector('.dessert-block.selected .opt-prc').innerText;
+    const dessertPrice = Number(dessertPriceString.replace(',','.'));
+    const finalPrice = (foodPrice + drinkPrice + dessertPrice);
+
+    let message = "Olá, gostaria de fazer o pedido\n - Prato: " + `${foodOrder}` + "\n - Bebida: " + `${drinkOrder}` + "\n - Sobremesa: " + `${dessertOrder}` + "\nTotal: R$ " + `${finalPrice.toFixed(2).replace('.',',')}` + "\n\nNome: " + `${name}` + "\nEndereço: " + `${address}`;
+    
+    message = encodeURIComponent(message);
+
+    window.open('https://wa.me/' + `${phone}` + '?text=' + `${message}`);
+
+    
+}
+// -------- Function to send message - Start
+
+function orderCheckout() {
     overlay.classList.remove('deactivated')
     getOrders()
 }
